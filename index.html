@@ -2,9 +2,9 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Sellmyfy - Sistema de Vendas Automáticas | Venda 24/7 Sem Redes Sociais</title>
-  <meta name="description" content="Sistema Sellmyfy: Vendas 100% automáticas sem criar conteúdo ou aparecer. Funis validados, produtos prontos e suporte com IA. Resultados reais no piloto automático.">
-  <meta name="keywords" content="vendas automáticas, marketing digital, funis de vendas, sellmyfy, low ticket, automação, vendas online">
+  <title>Sellmyfy - Tráfego Direto Low Ticket Scale | Vendas 24/7 Sem Redes Sociais</title>
+  <meta name="description" content="Sellmyfy: Vendas automáticas 24/7 com Tráfego Direto Low Ticket Scale. Escale o link de qualquer oferta, produto ou infoproduto, segmente palavras-chave fortes e deixe a IA da Sellmyfy trabalhar por você. Funis validados, produtos prontos e suporte com IA.">
+  <meta name="keywords" content="sellmyfy, tráfego direto, low ticket scale, vendas automáticas, escalar link, palavras-chave, IA, funis de vendas, marketing digital, automação, infoproduto">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
@@ -114,10 +114,10 @@
       z-index: 900;
     }
     .container {
-      max-width: 480px;
+      max-width: 520px;
       margin: 26px auto;
       background: linear-gradient(180deg, var(--mid-black) 0%, var(--panel-black) 100%);
-      border-radius: 14px;
+      border-radius: 16px;
       box-shadow: var(--box-shadow);
       padding: 26px 22px;
       text-align: center;
@@ -140,8 +140,8 @@
     .video-box {
       margin: -20px auto 18px auto;
       width: 100%;
-      max-width: 430px;
-      border-radius: 12px;
+      max-width: 460px;
+      border-radius: 14px;
       box-shadow: 0 10px 30px rgba(255, 31, 31, 0.22);
       background: #000;
       aspect-ratio: 16/9;
@@ -197,7 +197,7 @@
     }
     .result-image {
       width: 100%;
-      max-width: 420px;
+      max-width: 440px;
       border-radius: 12px;
       margin: 14px auto;
       box-shadow: 0 8px 26px rgba(255, 31, 31, 0.18);
@@ -214,12 +214,12 @@
       color: var(--white);
       margin-bottom: 12px;
       font-weight: 900;
-      font-size: 1.22rem;
+      font-size: 1.24rem;
       line-height: 1.25;
       text-shadow: 0 0 10px rgba(255,31,31,0.12);
     }
     .container p {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--light-grey);
       margin-bottom: 16px;
       text-align: left;
@@ -227,6 +227,39 @@
     .highlight {
       color: var(--primary-red);
       font-weight: 800;
+    }
+    .promise-strip {
+      background: radial-gradient(600px 160px at 50% -60px, rgba(255,31,31,0.18), rgba(26,26,26,1));
+      border: 1.5px solid rgba(255,31,31,0.8);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin: 12px 0 16px 0;
+      box-shadow: 0 12px 34px rgba(255, 31, 31, 0.12);
+    }
+    .promise-strip b {
+      color: var(--white);
+      font-weight: 900;
+    }
+    .badge-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0 16px 0;
+    }
+    .badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--white);
+      background: linear-gradient(135deg, #111 0%, #161616 100%);
+      border: 1px solid #2a2a2a;
+      border-radius: 999px;
+      padding: 10px 12px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.35), inset 0 0 10px rgba(255,31,31,0.08);
+      letter-spacing: 0.2px;
     }
     .scarcity-section {
       background: linear-gradient(135deg, #0e0e0e 0%, #141414 100%);
@@ -486,6 +519,13 @@
       border-top: 1px solid #2a2a2a;
       padding-top: 10px;
     }
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,31,31,0.6), transparent);
+      margin: 10px 0 16px 0;
+      opacity: 0.8;
+    }
     @media (max-width: 600px) {
       body { padding-top: 90px; }
       .container {
@@ -498,7 +538,7 @@
         margin-top: -12px;
       }
       .container h1 {
-        font-size: 1.1rem;
+        font-size: 1.12rem;
       }
       .scarcity-title {
         font-size: 0.86rem;
@@ -511,6 +551,9 @@
         font-size: 1rem;
         padding: 6px 10px;
         min-width: 110px;
+      }
+      .badge-row {
+        grid-template-columns: 1fr;
       }
       .cta-button {
         width: 100%;
@@ -535,11 +578,11 @@
     <div class="header-content">
       <i class="fas fa-bolt" aria-hidden="true"></i>
       VAGAS SE ENCERRAM EM:
-      <div class="header-timer" id="headerTimer" aria-live="polite">00:30:00</div>
+      <div class="header-timer" id="headerTimer" aria-live="polite">01:00:00</div>
     </div>
   </div>
   <div class="sub-bar" role="region" aria-label="Mensagem de sistema">
-    SISTEMA 100% AUTOMÁTICO - VENDA SEM APARECER OU CRIAR CONTEÚDO
+    SISTEMA 100% AUTOMÁTICO • TRÁFEGO DIRETO SELLMYFY - LOW TICKET SCALE • ESCALe O LINK DE QUALQUER OFERTA SEM REDES SOCIAIS
   </div>
   <div class="container">
     <div class="content-wrap">
@@ -548,56 +591,77 @@
         </video>
         <div class="video-error" id="videoError">Não foi possível reproduzir o vídeo neste dispositivo. Toque para tentar novamente ou utilize outra fonte.</div>
       </div>
+
+      <div class="badge-row">
+        <div class="badge"><i class="fa-solid fa-link" aria-hidden="true"></i> Escale qualquer link de oferta</div>
+        <div class="badge"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Palavras-chave com intenção</div>
+        <div class="badge"><i class="fa-solid fa-robot" aria-hidden="true"></i> IA da Sellmyfy trabalha 24/7</div>
+      </div>
+
       <div class="results-grid">
         <img src="resultado1.PNG?v=2" alt="Resultados Comprovados Sellmyfy - Exemplo 1" class="result-image" loading="lazy" decoding="async">
         <img src="resultado2.PNG?v=2" alt="Resultados Comprovados Sellmyfy - Exemplo 2" class="result-image" loading="lazy" decoding="async">
         <img src="resultado3.PNG?v=2" alt="Resultados Comprovados Sellmyfy - Exemplo 3" class="result-image" loading="lazy" decoding="async">
       </div>
-      <h1>Sistema Sellmyfy: Vendas Automáticas 24/7 Sem Redes Sociais</h1>
+
+      <h1>Sistema Sellmyfy: Tráfego Direto Low Ticket Scale para Vendas Automáticas 24/7</h1>
+
+      <div class="promise-strip">
+        <p><b>Você recebe todo o material</b> e opera no <span class="highlight">Tráfego Direto da Sellmyfy – Low Ticket Scale</span>: <b>escalando o link de qualquer oferta, produto ou infoproduto</b>, <b>segmentando palavras-chave fortes</b> e deixando a <b>IA da Sellmyfy</b> trabalhar por você, sem depender de redes sociais.</p>
+      </div>
+
       <p>Cansado de ser refém de algoritmos, criar conteúdo que não converte, sofrer bloqueios ou ter que se expor para vender?</p>
       <p><span class="highlight">O Sellmyfy chegou para revolucionar seu negócio digital.</span> Um sistema completo de vendas automáticas que funciona enquanto você dorme, trabalha ou aproveita sua vida.</p>
-      <p>Imagine acordar com vendas acontecendo automaticamente, <span class="highlight">sem precisar criar stories, fazer lives ou enviar DMs.</span> Apenas resultados consistentes todos os dias, no piloto automático.</p>
+      <p>Com o nosso <span class="highlight">Tráfego Direto Low Ticket Scale</span>, <b>você simplesmente conecta o link da sua oferta</b> – de qualquer produto ou infoproduto – <b>ativa a segmentação por palavras-chave com alta intenção</b> e <b>deixa a IA da Sellmyfy otimizar tudo em tempo real</b>. Venda sem stories, lives ou DMs.</p>
+
       <div class="scarcity-section" aria-live="polite">
-        <div class="scarcity-title"><i class="fas fa-fire" aria-hidden="true"></i> ÚLTIMAS VAGAS COM ACESSO IMEDIATO</div>
+        <div class="scarcity-title"><i class="fas fa-fire" aria-hidden="true"></i> ACESSO IMEDIATO AO SISTEMA</div>
         <div class="scarcity-info">Tempo Restante Para Inscrições:</div>
         <div class="countdown" id="timer" aria-label="Contagem regressiva">
           <span class="digit" data-val="3">3</span><span class="digit" data-val="0">0</span><span>:</span><span class="digit" data-val="0">0</span><span class="digit" data-val="0">0</span>
         </div>
-        <div class="slots-left" id="slots">RESTAM APENAS 6 VAGAS!</div>
+        <div class="slots-left" id="slots">ACESSO IMEDIATO DISPONÍVEL</div>
       </div>
+
       <div class="ai-section">
         <div class="ai-title"><i class="fas fa-robot" aria-hidden="true"></i> SUPORTE DIÁRIO COM IA SELLMYFY</div>
         <div class="ai-content">
           <span class="ai-highlight">Você não estará sozinho nessa jornada!</span><br>
-          Nosso grupo exclusivo opera <span class="ai-highlight">comigo todos os dias</span> usando a Inteligência Artificial Sellmyfy para maximizar seus resultados.
-          <span class="ai-highlight">Suporte em tempo real, estratégias atualizadas e acompanhamento personalizado.</span>
+          Nosso grupo exclusivo opera <span class="ai-highlight">comigo todos os dias</span> usando a <b>Inteligência Artificial Sellmyfy</b> para maximizar seus resultados no <b>Tráfego Direto Low Ticket Scale</b>.<br>
+          <span class="ai-highlight">Suporte em tempo real, estratégias atualizadas, segmentação de palavras-chave com intenção e acompanhamento personalizado.</span>
         </div>
       </div>
+
       <div class="topics">
         <div class="topics-title"><i class="fas fa-bullseye" aria-hidden="true"></i> PROBLEMAS QUE RESOLVEMOS PARA VOCÊ:</div>
         <ul>
-          <li><strong>Algoritmos Imprevisíveis:</strong> Chega de ser refém do Instagram, TikTok e Facebook</li>
+          <li><strong>Algoritmos Imprevisíveis:</strong> Chega de depender de Instagram, TikTok e Facebook</li>
           <li><strong>Medo da Exposição:</strong> Venda sem mostrar seu rosto ou fazer stories</li>
-          <li><strong>Bloqueios e Limitações:</strong> Elimine o risco de perder tudo da noite para o dia</li>
-          <li><strong>Tempo Perdido Criando Conteúdo:</strong> Liberte-se de horas de gravação e edição</li>
-          <li><strong>Rejeição e Frustração:</strong> Acabe com DMs ignoradas e "nãos" constantes</li>
+          <li><strong>Bloqueios e Limitações:</strong> Evite perder tudo da noite para o dia</li>
+          <li><strong>Tempo Perdido Criando Conteúdo:</strong> Liberte-se de gravações e edições</li>
+          <li><strong>Rejeição e Frustração:</strong> Adeus DMs ignoradas e "nãos" constantes</li>
           <li><strong>Dependência de Seguidores:</strong> Venda sem precisar de audiência gigante</li>
-          <li><strong>Insegurança Financeira:</strong> Tenha um sistema previsível e consistente</li>
+          <li><strong>Insegurança Financeira:</strong> Tenha um sistema previsível e consistente com <span class="highlight">Tráfego Direto Low Ticket Scale</span></li>
         </ul>
       </div>
+
       <div class="features-box">
         <h3><i class="fas fa-cogs" aria-hidden="true"></i> COMO O SISTEMA FUNCIONA:</h3>
         <ul class="features-list">
           <li><strong>Configuração Rápida:</strong> Menos de 2 horas com suporte especializado</li>
           <li><strong>Produtos Prontos:</strong> Acesso a produtos de alta conversão 100% validados</li>
-          <li><strong>Funís Automatizados:</strong> Sequências que convertem 24/7 automaticamente</li>
+          <li><strong>Funis Automatizados:</strong> Sequências que convertem 24/7 automaticamente</li>
           <li><strong>Campanhas Testadas:</strong> Copies e estratégias que já funcionam</li>
           <li><strong>Automação Completa:</strong> Do primeiro contato ao pós-venda</li>
+          <li><strong>Tráfego Direto Low Ticket Scale:</strong> <b>Escale o link de qualquer oferta, produto ou infoproduto</b> sem depender de redes sociais</li>
+          <li><strong>Segmentação por Palavras-Chave:</strong> Ataque termos com alta intenção de compra</li>
+          <li><strong>IA da Sellmyfy:</strong> Otimização contínua de lances, criativos e públicos 24/7</li>
           <li><strong>Suporte Dedicado:</strong> Equipe para garantir seu sucesso</li>
           <li><strong>Atualizações Constantes:</strong> Novas estratégias regularmente</li>
           <li><strong>Comunidade Exclusiva:</strong> Rede de empreendedores automáticos</li>
         </ul>
       </div>
+
       <div class="features-box">
         <h3><i class="fas fa-gem" aria-hidden="true"></i> O QUE VOCÊ RECEBE HOJE:</h3>
         <ul class="features-list">
@@ -608,33 +672,41 @@
           <li>Treinamento completo de configuração passo a passo</li>
           <li>Suporte prioritário por 30 dias com nossa equipe</li>
           <li>Grupo VIP de resultados onde ninguém sai perdendo</li>
+          <li><b>Módulo Tráfego Direto Low Ticket Scale</b> para escalar o link de qualquer oferta, produto ou infoproduto</li>
+          <li>Playbooks de <b>segmentação por palavras-chave fortes</b> com intenção de compra</li>
+          <li>Templates de <b>automação com IA Sellmyfy</b> para otimização contínua</li>
           <li>Método de escala para múltiplos produtos simultâneos</li>
           <li>Estratégias avançadas de retenção de clientes</li>
           <li>Templates de suporte automatizado profissionais</li>
         </ul>
       </div>
+
       <div class="ai-section">
         <div class="ai-title"><i class="fas fa-hands-helping" aria-hidden="true"></i> SUPORTE DIRETO COMIGO!</div>
         <div class="ai-content">
           <span class="ai-highlight">Eu mesmo operarei com você no grupo exclusivo todos os dias!</span><br>
-          Usando nossa Inteligência Artificial Sellmyfy, otimizaremos suas campanhas juntos com funis fortes e estratégias validadas.
-          <span class="ai-highlight">Acompanhamento diário, ajustes em tempo real e suporte personalizado para seu sucesso! Aqui ninguém sai perdendo!</span>
+          Usando a <b>Inteligência Artificial Sellmyfy</b>, vamos otimizar suas campanhas no <b>Tráfego Direto Low Ticket Scale</b>, conectando seu link de oferta, <b>segmentando palavras-chave fortes</b> e deixando a IA trabalhar para escalar resultados de forma previsível.<br>
+          <span class="ai-highlight">Acompanhamento diário, ajustes em tempo real e suporte personalizado para seu sucesso!</span>
         </div>
       </div>
+
+      <div class="divider"></div>
+
       <div class="cta-block">
         <button class="cta-button" id="ctaBtn">
           <i class="fas fa-rocket" aria-hidden="true"></i> GARANTIR MEU ACESSO AGORA
         </button>
-      </div>
-      <div class="obs">
-        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i> <strong>ATENÇÃO:</strong> Esta é a única vez que o Sellmyfy será aberto neste formato.<br>
-        Vagas extremamente limitadas - Não haverá reabertura ou extensão de prazo!
+        <p class="obs">
+          <i class="fas fa-exclamation-triangle" aria-hidden="true"></i> <strong>ATENÇÃO:</strong> Esta é a única vez que o Sellmyfy será aberto neste formato.<br>
+          Vagas extremamente limitadas - Não haverá reabertura ou extensão de prazo!
+        </p>
       </div>
     </div>
   </div>
+
   <script>
     (function() {
-      var totalSecondsInitial = 30 * 60;
+      var totalSecondsInitial = 60 * 60;
       var totalSeconds = totalSecondsInitial;
       var headerTotalSeconds = totalSecondsInitial;
       var timerEl = document.getElementById('timer');
