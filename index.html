@@ -6,12 +6,15 @@
   <meta name="description" content="Sistema Sellmyfy: Vendas 100% automáticas sem criar conteúdo ou aparecer. Funis validados, produtos prontos e suporte com IA. Resultados reais no piloto automático.">
   <meta name="keywords" content="vendas automáticas, marketing digital, funis de vendas, sellmyfy, low ticket, automação, vendas online">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="preload" as="image" href="resultado1.PNG">
-  <link rel="preload" as="image" href="resultado2.PNG">
-  <link rel="preload" as="image" href="resultado3.PNG">
-  <link rel="preload" as="video" href="IMG_0444.mp4" type="video/mp4">
+  <link rel="preload" as="image" href="resultado1.PNG?v=2">
+  <link rel="preload" as="image" href="resultado2.PNG?v=2">
+  <link rel="preload" as="image" href="resultado3.PNG?v=2">
+  <link rel="preload" as="video" href="IMG_0444.mp4?v=2" type="video/mp4">
   <style>
     :root {
       --primary-red: #ff1f1f;
@@ -558,15 +561,15 @@
   <div class="container">
     <div class="content-wrap">
       <div class="video-box" id="videoBox">
-        <video id="promoVideo" controls autoplay muted loop playsinline preload="auto" poster="resultado1.png" aria-label="Sistema Sellmyfy - Vendas Automáticas" controlslist="nodownload">
-          <source src="IMG_0444.mp4" type="video/mp4">
+        <video id="promoVideo" controls autoplay muted loop playsinline preload="auto" poster="resultado1.png?v=2" aria-label="Sistema Sellmyfy - Vendas Automáticas" controlslist="nodownload">
+          <source src="IMG_0444.mp4?v=2" type="video/mp4">
         </video>
         <div class="video-error" id="videoError">Não foi possível reproduzir o vídeo neste dispositivo. Tente novamente ou utilize outra fonte.</div>
       </div>
       <div class="results-grid">
-        <img src="resultado1.PNG" alt="Resultados Comprovados Sellmyfy - Exemplo 1" class="result-image" loading="lazy" decoding="async">
-        <img src="resultado2.PNG" alt="Resultados Comprovados Sellmyfy - Exemplo 2" class="result-image" loading="lazy" decoding="async">
-        <img src="resultado3.PNG" alt="Resultados Comprovados Sellmyfy - Exemplo 3" class="result-image" loading="lazy" decoding="async">
+        <img src="resultado1.PNG?v=2" alt="Resultados Comprovados Sellmyfy - Exemplo 1" class="result-image" loading="lazy" decoding="async">
+        <img src="resultado2.PNG?v=2" alt="Resultados Comprovados Sellmyfy - Exemplo 2" class="result-image" loading="lazy" decoding="async">
+        <img src="resultado3.PNG?v=2" alt="Resultados Comprovados Sellmyfy - Exemplo 3" class="result-image" loading="lazy" decoding="async">
       </div>
       <h1>Sistema Sellmyfy: Vendas Automáticas 24/7 Sem Redes Sociais</h1>
       <p>Cansado de ser refém de algoritmos, criar conteúdo que não converte, sofrer bloqueios ou ter que se expor para vender?</p>
@@ -764,7 +767,29 @@
         }
       });
     }
+    function forceCacheBust() {
+      const cacheBuster = '?v=' + Date.now();
+      const video = document.getElementById('promoVideo');
+      if (video) {
+        const source = video.querySelector('source');
+        if (source) {
+          const currentSrc = source.getAttribute('src');
+          if (currentSrc && !currentSrc.includes('?v=')) {
+            source.setAttribute('src', currentSrc + cacheBuster);
+            video.load();
+          }
+        }
+      }
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        const currentSrc = img.getAttribute('src');
+        if (currentSrc && !currentSrc.includes('?v=')) {
+          img.setAttribute('src', currentSrc + cacheBuster);
+        }
+      });
+    }
     function init() {
+      forceCacheBust();
       startTimers();
       ensureVideoPlayability();
       ensureImagesDecode();
