@@ -6,15 +6,12 @@
   <meta name="description" content="Sistema Sellmyfy: Vendas 100% automáticas sem criar conteúdo ou aparecer. Funis validados, produtos prontos e suporte com IA. Resultados reais no piloto automático.">
   <meta name="keywords" content="vendas automáticas, marketing digital, funis de vendas, sellmyfy, low ticket, automação, vendas online">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="preload" as="image" href="resultado1.PNG?v=3">
-  <link rel="preload" as="image" href="resultado2.PNG?v=3">
-  <link rel="preload" as="image" href="resultado3.PNG?v=3">
-  <link rel="preload" as="video" href="IMG_0444.mp4?v=3" type="video/mp4">
+  <link rel="preload" as="image" href="resultado1.PNG">
+  <link rel="preload" as="image" href="resultado2.PNG">
+  <link rel="preload" as="image" href="resultado3.PNG">
+  <link rel="preload" as="video" href="IMG_0444.mp4" type="video/mp4">
   <style>
     :root {
       --primary-red: #ff1f1f;
@@ -179,33 +176,6 @@
       object-fit: cover;
       background: #000;
     }
-    .video-play-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-2) 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
-      box-shadow: var(--glow);
-      z-index: 2;
-      border: 3px solid rgba(255,255,255,0.9);
-      transition: all 0.3s ease;
-    }
-    .video-play-button:hover {
-      transform: translate(-50%, -50%) scale(1.1);
-      box-shadow: 0 0 30px rgba(255, 31, 31, 0.6);
-    }
-    .video-box.playing .video-play-button {
-      display: none;
-    }
     .video-error {
       position: absolute;
       inset: 0;
@@ -220,7 +190,6 @@
       text-align: center;
       backdrop-filter: blur(2px);
       border-radius: 12px;
-      z-index: 3;
     }
     .result-image {
       width: 100%;
@@ -542,11 +511,6 @@
         max-width: 100%;
         margin-top: -12px;
       }
-      .video-play-button {
-        width: 60px;
-        height: 60px;
-        font-size: 1.7rem;
-      }
       .container h1 {
         font-size: 1.1rem;
       }
@@ -594,18 +558,15 @@
   <div class="container">
     <div class="content-wrap">
       <div class="video-box" id="videoBox">
-        <video id="promoVideo" controls muted loop playsinline preload="metadata" poster="resultado1.png?v=3" aria-label="Sistema Sellmyfy - Vendas Automáticas" controlslist="nodownload">
-          <source src="IMG_0444.mp4?v=3" type="video/mp4">
+        <video id="promoVideo" controls autoplay muted loop playsinline preload="auto" poster="resultado1.png" aria-label="Sistema Sellmyfy - Vendas Automáticas" controlslist="nodownload" data-src="IMG_0444.mp4">
+          <source src="IMG_0444.mp4" type="video/mp4">
         </video>
-        <div class="video-play-button" id="videoPlayButton">
-          <i class="fas fa-play"></i>
-        </div>
         <div class="video-error" id="videoError">Não foi possível reproduzir o vídeo neste dispositivo. Tente novamente ou utilize outra fonte.</div>
       </div>
       <div class="results-grid">
-        <img src="resultado1.PNG?v=3" alt="Resultados Comprovados Sellmyfy - Exemplo 1" class="result-image" loading="lazy" decoding="async">
-        <img src="resultado2.PNG?v=3" alt="Resultados Comprovados Sellmyfy - Exemplo 2" class="result-image" loading="lazy" decoding="async">
-        <img src="resultado3.PNG?v=3" alt="Resultados Comprovados Sellmyfy - Exemplo 3" class="result-image" loading="lazy" decoding="async">
+        <img src="resultado1.PNG" alt="Resultados Comprovados Sellmyfy - Exemplo 1" class="result-image" loading="lazy" decoding="async">
+        <img src="resultado2.PNG" alt="Resultados Comprovados Sellmyfy - Exemplo 2" class="result-image" loading="lazy" decoding="async">
+        <img src="resultado3.PNG" alt="Resultados Comprovados Sellmyfy - Exemplo 3" class="result-image" loading="lazy" decoding="async">
       </div>
       <h1>Sistema Sellmyfy: Vendas Automáticas 24/7 Sem Redes Sociais</h1>
       <p>Cansado de ser refém de algoritmos, criar conteúdo que não converte, sofrer bloqueios ou ter que se expor para vender?</p>
@@ -687,170 +648,37 @@
     </div>
   </div>
   <script>
-    const totalSecondsInitial = 30 * 60;
-    let totalSeconds = totalSecondsInitial;
-    let headerTotalSeconds = totalSecondsInitial;
-    const timerEl = document.getElementById('timer');
-    const headerTimerEl = document.getElementById('headerTimer');
-    const slotsEl = document.getElementById('slots');
-    const ctaBtn = document.getElementById('ctaBtn');
-    const promoVideo = document.getElementById('promoVideo');
-    const videoError = document.getElementById('videoError');
-    const videoPlayButton = document.getElementById('videoPlayButton');
-    const videoBox = document.getElementById('videoBox');
-    function pad2(n) {
-      return String(n).padStart(2, '0');
-    }
-    function formatHMS(total) {
-      const h = Math.floor(total / 3600);
-      const m = Math.floor((total % 3600) / 60);
-      const s = total % 60;
-      return `${pad2(h)}:${pad2(m)}:${pad2(s)}`;
-    }
-    function digitsNodes() {
-      return Array.from(timerEl.querySelectorAll('.digit'));
-    }
-    function setMainTimerDisplay(secondsLeft) {
-      const m = pad2(Math.floor(secondsLeft / 60));
-      const s = pad2(secondsLeft % 60);
-      const composed = m + s;
-      const nodes = digitsNodes();
-      if (nodes.length === 4) {
-        const vals = [composed[0], composed[1], composed[2], composed[3]];
-        vals.forEach((v, i) => {
-          if (nodes[i].dataset.val !== v) {
-            nodes[i].dataset.val = v;
-            nodes[i].textContent = v;
-            nodes[i].classList.remove('bump');
-            void nodes[i].offsetWidth;
-            nodes[i].classList.add('bump');
-          }
-        });
-      } else {
-        timerEl.textContent = `${m}:${s}`;
-      }
-    }
-    function updateHeaderTimer() {
-      headerTimerEl.textContent = formatHMS(headerTotalSeconds);
-      if (headerTotalSeconds <= 0) {
-        headerTimerEl.textContent = "00:00:00";
-        headerTimerEl.style.background = 'rgba(255,0,0,0.28)';
-      }
-    }
-    function updateMainTimer() {
-      setMainTimerDisplay(totalSeconds);
-      if (totalSeconds <= 0) {
-        timerEl.innerHTML = '<span class="digit">0</span><span class="digit">0</span><span>:</span><span class="digit">0</span><span class="digit">0</span>';
-        slotsEl.textContent = "VAGAS ESGOTADAS!";
-        ctaBtn.disabled = true;
-        ctaBtn.style.opacity = '0.6';
-        ctaBtn.style.cursor = 'not-allowed';
-        ctaBtn.textContent = 'ACESSO ENCERRADO';
-        ctaBtn.style.animation = 'none';
-      }
-    }
-    function startTimers() {
-      setMainTimerDisplay(totalSeconds);
-      headerTimerEl.textContent = formatHMS(headerTotalSeconds);
-      const headerInt = setInterval(() => {
-        headerTotalSeconds--;
-        updateHeaderTimer();
-        if (headerTotalSeconds <= 0) {
-          clearInterval(headerInt);
-        }
-      }, 1000);
-      const mainInt = setInterval(() => {
-        totalSeconds--;
-        updateMainTimer();
-        if (totalSeconds <= 0) {
-          clearInterval(mainInt);
-        }
-      }, 1000);
-    }
-    function getAccess() {
-      window.location.href = 'https://go.tribopay.com.br/0zr2wtr5u4';
-    }
-    function ensureVideoPlayability() {
-      promoVideo.addEventListener('error', () => {
-        videoError.style.display = 'flex';
-        videoPlayButton.style.display = 'none';
-      });
-      promoVideo.addEventListener('loadeddata', () => {
-        videoError.style.display = 'none';
-      });
-      promoVideo.addEventListener('play', () => {
-        videoError.style.display = 'none';
-        videoBox.classList.add('playing');
-      });
-      promoVideo.addEventListener('pause', () => {
-        videoBox.classList.remove('playing');
-      });
-      videoPlayButton.addEventListener('click', () => {
-        const playPromise = promoVideo.play();
-        if (playPromise !== undefined) {
-          playPromise.then(() => {
-            videoBox.classList.add('playing');
-          }).catch(error => {
-            videoError.style.display = 'flex';
-            videoPlayButton.style.display = 'none';
-          });
-        }
-      });
-      videoBox.addEventListener('click', (e) => {
-        if (e.target !== videoPlayButton && !videoPlayButton.contains(e.target)) {
-          if (promoVideo.paused) {
-            promoVideo.play();
-          } else {
-            promoVideo.pause();
-          }
-        }
-      });
-    }
-    function ensureImagesDecode() {
-      const imgs = Array.from(document.querySelectorAll('img'));
-      imgs.forEach(img => {
-        if (img.complete && img.naturalWidth === 0) {
-          img.src = img.src;
-        }
-        if ('decode' in img) {
-          img.decode().catch(() => {});
-        }
-      });
-    }
-    function forceCacheBust() {
-      const cacheBuster = '?v=' + Date.now();
-      const video = document.getElementById('promoVideo');
-      if (video) {
-        const source = video.querySelector('source');
-        if (source) {
-          const currentSrc = source.getAttribute('src');
-          if (currentSrc && !currentSrc.includes('?v=')) {
-            source.setAttribute('src', currentSrc + cacheBuster);
-            video.load();
-          }
-        }
-      }
-      const images = document.querySelectorAll('img');
-      images.forEach(img => {
-        const currentSrc = img.getAttribute('src');
-        if (currentSrc && !currentSrc.includes('?v=')) {
-          img.setAttribute('src', currentSrc + cacheBuster);
-        }
-      });
-    }
-    function init() {
-      forceCacheBust();
-      startTimers();
-      ensureVideoPlayability();
-      ensureImagesDecode();
-      ctaBtn.addEventListener('click', () => {
-        if (!ctaBtn.disabled) getAccess();
-      });
-      window.addEventListener('online', () => {
-        ensureImagesDecode();
-      });
-    }
-    init();
+    const totalSecondsInitial = 30 * 60
+    let totalSeconds = totalSecondsInitial
+    let headerTotalSeconds = totalSecondsInitial
+    const timerEl = document.getElementById('timer')
+    const headerTimerEl = document.getElementById('headerTimer')
+    const slotsEl = document.getElementById('slots')
+    const ctaBtn = document.getElementById('ctaBtn')
+    let promoVideo = document.getElementById('promoVideo')
+    const videoError = document.getElementById('videoError')
+    function pad2(n){return String(n).padStart(2,'0')}
+    function formatHMS(total){const h=Math.floor(total/3600);const m=Math.floor((total%3600)/60);const s=total%60;return `${pad2(h)}:${pad2(m)}:${pad2(s)}`}
+    function digitsNodes(){return Array.from(timerEl.querySelectorAll('.digit'))}
+    function setMainTimerDisplay(secondsLeft){const m=pad2(Math.floor(secondsLeft/60));const s=pad2(secondsLeft%60);const composed=m+s;const nodes=digitsNodes();if(nodes.length===4){const vals=[composed[0],composed[1],composed[2],composed[3]];vals.forEach((v,i)=>{if(nodes[i].dataset.val!==v){nodes[i].dataset.val=v;nodes[i].textContent=v;nodes[i].classList.remove('bump');void nodes[i].offsetWidth;nodes[i].classList.add('bump')}})}else{timerEl.textContent=`${m}:${s}`}}
+    function updateHeaderTimer(){headerTimerEl.textContent=formatHMS(headerTotalSeconds);if(headerTotalSeconds<=0){headerTimerEl.textContent="00:00:00";headerTimerEl.style.background='rgba(255,0,0,0.28)'}}
+    function updateMainTimer(){setMainTimerDisplay(totalSeconds);if(totalSeconds<=0){timerEl.innerHTML='<span class="digit">0</span><span class="digit">0</span><span>:</span><span class="digit">0</span><span class="digit">0</span>';slotsEl.textContent="VAGAS ESGOTADAS!";ctaBtn.disabled=true;ctaBtn.style.opacity='0.6';ctaBtn.style.cursor='not-allowed';ctaBtn.textContent='ACESSO ENCERRADO';ctaBtn.style.animation='none'}}
+    function startTimers(){setMainTimerDisplay(totalSeconds);headerTimerEl.textContent=formatHMS(headerTotalSeconds);const headerInt=setInterval(()=>{headerTotalSeconds--;updateHeaderTimer();if(headerTotalSeconds<=0){clearInterval(headerInt)}},1000);const mainInt=setInterval(()=>{totalSeconds--;updateMainTimer();if(totalSeconds<=0){clearInterval(mainInt)}},1000)}
+    function getAccess(){window.location.href='https://go.tribopay.com.br/0zr2wtr5u4'}
+    function ensureImagesDecode(){const imgs=Array.from(document.querySelectorAll('img'));imgs.forEach(img=>{if(img.complete&&img.naturalWidth===0){img.src=img.src}if('decode' in img){img.decode().catch(()=>{})}})}
+    function cacheBust(url){if(!url) return url;return url.split('?')[0]+'?_cb='+Date.now()}
+    async function fetchBlobNoCache(url){try{const r=await fetch(url,{cache:'no-store',credentials:'same-origin'});if(!r.ok) throw new Error('e');return await r.blob()}catch(e){try{const r2=await fetch(url+'?_cb='+Date.now(),{cache:'no-store',credentials:'same-origin'});if(!r2.ok) throw new Error('e2');return await r2.blob()}catch(e2){throw e2}}}
+    async function removeVideoPreloads(){try{const links=Array.from(document.querySelectorAll('link[rel="preload"][as="video"]'));links.forEach(l=>{try{l.parentNode&&l.parentNode.removeChild(l)}catch(e){}})}catch(e){}}
+    async function setPoster(posterUrl){if(!posterUrl) return;try{const blob=await fetchBlobNoCache(posterUrl);const obj=URL.createObjectURL(blob);promoVideo.setAttribute('poster',obj);setTimeout(()=>{try{URL.revokeObjectURL(obj)}catch(e){}},60000)}catch(e){promoVideo.setAttribute('poster',cacheBust(posterUrl))}}
+    async function setVideo(srcUrl){if(!srcUrl) return;try{promoVideo.pause();const blob=await fetchBlobNoCache(srcUrl);const obj=URL.createObjectURL(blob);while(promoVideo.firstChild){promoVideo.removeChild(promoVideo.firstChild)}try{promoVideo.removeAttribute('src')}catch(e){}promoVideo.src=obj;promoVideo.preload='metadata';promoVideo.load();if(promoVideo.autoplay||promoVideo.muted){promoVideo.muted=true;const p=promoVideo.play();if(p&&p instanceof Promise){p.catch(()=>{})}}setTimeout(()=>{try{URL.revokeObjectURL(obj)}catch(e){}},120000)}catch(e){try{promoVideo.pause();while(promoVideo.firstChild){promoVideo.removeChild(promoVideo.firstChild)}const cb=cacheBust(srcUrl);promoVideo.src=cb;promoVideo.preload='metadata';promoVideo.load();if(promoVideo.autoplay||promoVideo.muted){promoVideo.muted=true;const p=promoVideo.play();if(p&&p instanceof Promise){p.catch(()=>{})}}}catch(e2){}}
+    function bindVideoEvents(){promoVideo.addEventListener('error',()=>{videoError.style.display='flex'});promoVideo.addEventListener('loadeddata',()=>{videoError.style.display='none'});promoVideo.addEventListener('play',()=>{videoError.style.display='none'});const vb=document.getElementById('videoBox');if(vb){vb.addEventListener('click',()=>{if(promoVideo.paused){promoVideo.muted=true;const p=promoVideo.play();if(p&&p instanceof Promise){p.catch(()=>{})}}else{promoVideo.pause()}})}
+    function findOriginalSource(){const s=promoVideo.querySelector('source');if(s){return s.getAttribute('data-orig')||s.getAttribute('src')||promoVideo.getAttribute('data-src')||promoVideo.getAttribute('src')||''}return promoVideo.getAttribute('data-src')||promoVideo.getAttribute('src')||''}
+    function findOriginalPoster(){return promoVideo.getAttribute('poster')||''}
+    async function refreshVideoAndPoster(){try{await removeVideoPreloads();bindVideoEvents();const src=findOriginalSource();const poster=findOriginalPoster();if(poster){await setPoster(poster)}if(src){await setVideo(src)}else{const fallback=promoVideo.getAttribute('src')||promoVideo.getAttribute('data-src')||'';if(fallback){await setVideo(fallback)}}}catch(e){}}
+    function observeChanges(){const mo=new MutationObserver(()=>{try{promoVideo=document.getElementById('promoVideo')}catch(e){}bindVideoEvents();setTimeout(()=>{refreshVideoAndPoster().catch(()=>{})},50)});mo.observe(document.documentElement,{childList:true,subtree:true})}
+    function setupOnlineAndVisibility(){window.addEventListener('online',()=>{ensureImagesDecode();refreshVideoAndPoster().catch(()=>{})});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){refreshVideoAndPoster().catch(()=>{})}})}
+    function init(){startTimers();ensureImagesDecode();bindVideoEvents();refreshVideoAndPoster().catch(()=>{});ctaBtn.addEventListener('click',()=>{if(!ctaBtn.disabled) getAccess()});observeChanges();setupOnlineAndVisibility()}
+    init()
   </script>
 </body>
 </html>
